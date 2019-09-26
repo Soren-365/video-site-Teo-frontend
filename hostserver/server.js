@@ -21,7 +21,7 @@ app.prepare().then(() => {
 
     if (pathname === '/') {
       app.render(req, res, '/', query); 
-      console.log("Got a new GET @ /");
+      console.log("Got a new GET @ /");}
 
       else if (pathname === '/apollo') {
       app.render(req, res, '/apollo', query);
