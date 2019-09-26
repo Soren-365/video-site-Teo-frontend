@@ -1,0 +1,59 @@
+html {
+  box-sizing: border-box; }
+
+header {
+  background-color: white;
+  z-index: 1000;
+  color: black;
+  display: flex;
+  z-index: 10;
+  position: fixed;
+  width: 100%; }
+
+.headerbuffer {
+  height: 80px; }
+
+@media (800px) {
+  .headerbuffer {
+    height: 50px; } }
+
+header.sub {
+  display: flex;
+  justify-content: space-evenly; }
+
+body {
+  background: black;
+  font-size: 50px;
+  margin: 0;
+  padding: 0;
+  z-index: -100;
+  display: flex;
+  flex-direction: column;
+  color: white; }
+
+li, p, h6, h5, h4, h3, h2 {
+  font-family: "Raleway", sans-serif; }
+
+h2 {
+  font-family: "Jacques Francois", serif; }
+
+h1 {
+  font-family: "IM Fell French Canon", serif; }
+
+header {
+  font-family: "Revalia", cursive; }
+
+article p {
+  font-size: 16px; }
+
+body {
+  flex: 0 1 auto;
+  overflow: none;
+  min-height: 100vh;
+  width: 100%; }
+
+footer {
+  flex-shrink: 0;
+  color: black;
+  margin-top: auto;
+  background-color: #ff9d00; }

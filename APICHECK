@@ -1,0 +1,6 @@
+POST http://localhost:2997/graphql 
+content-type: application/graphql
+
+{
+    nein
+}
