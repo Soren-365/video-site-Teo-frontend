@@ -27,7 +27,7 @@ const Header = ({ router: { pathname } }) => (
         margin-bottom: 25px;
       }
       a {
-        font-size: 14px;
+        font-size: 18px;
         margin-right: 15px;
         text-decoration: none;
       }

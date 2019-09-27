@@ -165,7 +165,7 @@ class Index extends React.Component {
                    
                         .testtext {
                 color: white;
-                font-size: 30px;
+                font-size: 26px;
                 padding: 20px;
                 padding-bottom: 0px;
                 margin: 0 auto;

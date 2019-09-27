@@ -114,7 +114,7 @@ import Link from 'next/link'
         <style jsx>{`
               .testtext {
                 color: white;
-                font-size: 30px;
+                font-size: 24px;
                 padding: 20px;
                 padding-bottom: 0px;
                 margin: 0 auto;
