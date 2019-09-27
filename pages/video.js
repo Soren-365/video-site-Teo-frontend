@@ -57,7 +57,7 @@ class Index extends React.Component {
             token: "eyJhbGciOiJIUzI1NsiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJTWmVfcmFvTSIsImlhdCI6MTU2OTE1MTQwMn0.qT3rI5nsTFQz_VzaQGQVw-qepcZJ4dPIK7JFIauH1bg",
             message: props.message,
             vid_id: {}, 
-            vid_link: "http://localhost:4013/video/y2mate.com - beautiful_nature_around_the_world_6lt2JfJdGSY_1080p.mp4"
+            vid_link: "http://localhost:4013/video/video.mp4"
         }
    
     }
@@ -76,7 +76,7 @@ class Index extends React.Component {
             //   // this.setState({ vidfile: response})
             const nodeid = document.getElementById('id')
            
-            this.setState({vid_id: nodeid, vid_link: "http://localhost:4013/video/y2mate.com - beautiful_nature_around_the_world_6lt2JfJdGSY_1080p.mp4"})
+            this.setState({vid_id: nodeid, vid_link: "http://localhost:4013/video/video.mp4"})
 
           
         }
