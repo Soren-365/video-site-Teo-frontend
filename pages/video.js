@@ -59,7 +59,7 @@ class Index extends React.Component {
             vid_id: {}, 
             vid_link: "http://localhost:4013/video/video.mp4"
         }
-   
+ 
     }
          
 
@@ -78,7 +78,9 @@ class Index extends React.Component {
            
             this.setState({vid_id: nodeid, vid_link: "http://localhost:4013/video/video.mp4"})
 
-          
+            var vidnodeupdated = this.state.vid_id
+            var vidlink = this.state.vid_link
+            vidnodeupdated.src = `${vidlink}`
         }
         catch {
             Error("something went wrong in fetch video")
@@ -130,7 +132,7 @@ class Index extends React.Component {
                         <React.Fragment>
                         <button className="button_signout" onClick={this.signout(apolloClient)}>Sign out</button>
                         <div className="videocontainer">
-                        <video id="id" width="640" height="280" type='video/mp4' controls controlsList="nodownload" > </video>
+                        <video src="http://localhost:4013/video/video.mp4" id="id" width="640" height="360" type='video/mp4' controls controlsList="nodownload" > </video>
                         {console.log("src video_url", this.state.videofile_url)}
                         {console.log("src vidfile", this.state.vidfile)}
                         </div>

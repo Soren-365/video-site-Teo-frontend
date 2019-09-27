@@ -6,9 +6,9 @@ const Header = ({ router: { pathname } }) => (
     <Link href='/'>
       <a className={pathname === '/index' ? 'is-active' : ''}>Home</a>
     </Link>
-    <Link href='/apollo'>
+    {/* <Link href='/apollo'>
       <a className={pathname === '/apollo' ? 'is-active' : ''}>Apollo</a>
-    </Link>
+    </Link> */}
     {/* <Link  href='/about'>
       <a className={pathname === '/about' ? 'is-active' : ''}>About</a>
     </Link> */}
