@@ -34,7 +34,7 @@ class Index extends React.Component {
         console.log("In index.js. context object is:",context)
         
         var name =""
-      { (!loggedInUser.isUserLoggedIn) ? name = "Stranger" : name = loggedInUser.isUserLoggedIn.name }
+      { (!loggedInUser.isUserLoggedIn) ? name = "Stranger, you have to login to watch the Video" : name = loggedInUser.isUserLoggedIn.name }
       
         if (typeof window === 'undefined') {
             // if server
