@@ -6,10 +6,7 @@ import redirect from '../lib/redirect'
 const SIGNUP_USER = gql`
   mutation create($email: String!, $password: String!,$name: String!) {
     signup(email: $email, password: $password, name: $name) {
-      id
-    }
-    login(email: $email, password: $password ) {
-      token
+    token
     }
   }
 `
@@ -28,10 +25,12 @@ const RegisterBox = ({ client }) => {
         document.cookie = cookie.serialize('token', data.signup.token, {
           maxAge: 30 * 24 * 60 * 60 // 30 days
         })
+        console.log("In LoginBox.js data is:",data)
+        console.log("In Loginbod.js document.cookie is:", document.cookie)
         // Force a reload of all the current queries now that the user is
         // logged in
         client.cache.reset().then(() => {
-          redirect({}, '/')
+         redirect({}, '/')
         })
       }}
       onError={error => {
@@ -56,7 +55,7 @@ const RegisterBox = ({ client }) => {
             name.value = email.value = password.value = ''
           }}
         >
-          {error && <p>Issue occurred while registering :(</p>}
+          {error && <p>Issue occurred while registering :( </p>}
           <input
             name='name'
             placeholder='Name'

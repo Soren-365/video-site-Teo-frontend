@@ -9,7 +9,7 @@ import cookie from 'cookie'
 import checkLoggedIn from '../lib/checkLoggedIn'
 import Link from 'next/link'
 import redirect from '../lib/redirect'
-
+import loginbox from '../components/LoginBox'
 // const get_world = {
 // options: { variables: { name: "Benjamin" }
 // }}}
@@ -32,7 +32,7 @@ class Index extends React.Component {
         var { loggedInUser  } = await checkLoggedIn(context.apolloClient)
         console.log("In index.js. Loggedin user object is:",loggedInUser)
         console.log("In index.js. context object is:",context)
-        
+       // console.log(getdata)
         var name =""
       { (!loggedInUser.isUserLoggedIn) ? name = "Stranger, you have to login to watch the Video." : name = loggedInUser.isUserLoggedIn.name }
       
