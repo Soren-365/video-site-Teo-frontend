@@ -138,11 +138,20 @@ class Index extends React.Component {
                         </div>
                        
                         </React.Fragment>
-                    } 
+                    }  
                     {!loggedInUser.isUserLoggedIn &&
+                        
+                        <React.Fragment>
                         <Link prefetch href='/create-account'><button>
                         Log In or Create account</button>
-                        </Link> 
+                        </Link>
+                        <div className="videocontainer">
+                        <video src="http://localhost:4013/video/video.mp4" id="id" width="640" height="360" type='video/mp4' controls controlsList="nodownload" > </video>
+                        {console.log("src video_url", this.state.videofile_url)}
+                        {console.log("src vidfile", this.state.vidfile)}
+                        </div>
+                       
+                        </React.Fragment> 
                     } 
 
                     <style jsx>{`
