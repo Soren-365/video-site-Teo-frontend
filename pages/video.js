@@ -57,7 +57,7 @@ class Index extends React.Component {
             token: "eyJhbGciOiJIUzI1NsiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJTWmVfcmFvTSIsImlhdCI6MTU2OTE1MTQwMn0.qT3rI5nsTFQz_VzaQGQVw-qepcZJ4dPIK7JFIauH1bg",
             message: props.message,
             vid_id: {}, 
-            vid_link: "http://localhost:4013/video/video.mp4"
+            vid_link: "/video/video.mp4"
         }
  
     }
@@ -76,7 +76,7 @@ class Index extends React.Component {
             //   // this.setState({ vidfile: response})
             const nodeid = document.getElementById('id')
            
-            this.setState({vid_id: nodeid, vid_link: "http://localhost:4013/video/video.mp4"})
+            this.setState({vid_id: nodeid, vid_link: "/video/video.mp4"})
 
             var vidnodeupdated = this.state.vid_id
             var vidlink = this.state.vid_link
@@ -132,7 +132,7 @@ class Index extends React.Component {
                         <React.Fragment>
                         <button className="button_signout" onClick={this.signout(apolloClient)}>Sign out</button>
                         <div className="videocontainer">
-                        <video src="http://localhost:4013/video/video.mp4" id="id" width="640" height="360" type='video/mp4' controls controlsList="nodownload" > </video>
+                        <video src="/video/video.mp4" id="id" width="640" height="360" type='video/mp4' controls controlsList="nodownload" > </video>
                         {console.log("src video_url", this.state.videofile_url)}
                         {console.log("src vidfile", this.state.vidfile)}
                         </div>
@@ -146,7 +146,7 @@ class Index extends React.Component {
                         Log In or Create account</button>
                         </Link>
                         <div className="videocontainer">
-                        <video src="http://localhost:4013/video/video.mp4" id="id" width="640" height="360" type='video/mp4' controls controlsList="nodownload" > </video>
+                        <video src="/video/video.mp4" id="id" width="640" height="360" type='video/mp4' controls controlsList="nodownload" > </video>
                         {console.log("src video_url", this.state.videofile_url)}
                         {console.log("src vidfile", this.state.vidfile)}
                         </div>
