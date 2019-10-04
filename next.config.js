@@ -4,7 +4,7 @@ const withCSS = require('@zeit/next-css')
 //const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer')
 
-require('dotenv').config()
+//require('dotenv').config()
 
 const path = require('path')
 const Dotenv = require('dotenv-webpack')
