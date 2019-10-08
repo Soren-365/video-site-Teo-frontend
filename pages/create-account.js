@@ -22,16 +22,48 @@ class CreateAccount extends React.Component {
   //   return {}
   // }
 
+
   render () {
     return (
       <App>
+        <div className="page_background content">
+        <div className="headerbuffer" />
+        <div className="contentbox">
+
+
         {/* RegisterBox handles all register logic. */}
+        <div className="createbox">
+        
         <SignupBox />
+        <div className="alreadyhave">
         <hr />
         Already have an account?{' '}
         <Link prefetch href='/login'>
           <a>Log in</a>
         </Link>
+        </div>
+        </div>
+        </div>
+        <style jsx>{`
+
+        .createbox {
+          position: relative;
+          width: 400px;
+          height: 400px;
+          margin: 40px calc((100% - 400px)/2) 0px auto;
+
+        }
+        .alreadyhave {
+          font-size: 20px;
+        }
+
+        a {
+          text-decoration: underline;
+          text-decoration-color: blue;
+        }
+
+        `}</style>
+        </div>
       </App>
     )
   }

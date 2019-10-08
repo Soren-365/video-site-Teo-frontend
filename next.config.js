@@ -22,7 +22,7 @@ module.exports = withSass(withCSS({
       analyzerMode: 'static',
       reportFilename: '../bundles/client.html'
       }
-    },
+      },
     webpack: config => {
         config.plugins = config.plugins || []
     
@@ -36,7 +36,12 @@ module.exports = withSass(withCSS({
           // new BundleAnalyzerPlugin()
           ]
         return config
-      }
+      },
+      exportPathMap: function() {
+        return {
+          '/': { page: '/index' },
+          'Videoplay': { page: 'Videoplay'},
+        }}
   }))
 
 

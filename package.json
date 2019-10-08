@@ -9,7 +9,7 @@
     "postexport": "node scripts/postExport.js",
     "css-build": "node-sass --omit-source-map-url sass/mainstyles.scss css/mainstyles.css",
     "css-watch": "npm run css-build -- --watch",
-    "dev-css": "npm run css-build && npm run dev -- -p 3001",
+    "dev-css": "npm run css-build && npm run dev -- -p 3000",
     "type-check": "tsc",
     "deploy": "npm run build && npm run export",
     "analyze": "BUNDLE_ANALYZE=both next build",

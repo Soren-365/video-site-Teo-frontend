@@ -64,19 +64,17 @@ export default ({ children, ...otherprops }) => (
         {/* <Header sitedatasettings={sitedata.settings}></Header> */}
 
         <Header />
-        <div className="page_background content">
-        <div className="headerbuffer" />
+       
                 {children}
-        </div>
-
+        
         <footer>
             <div className="footer">
                 
                 <div className="flexbox">
-                    <div><p>contact@avant-online.ro</p><p>0724 337 342</p></div>
-                    <div><p>Avant Web Solutions SRL, CUI: 41221114</p><p>Str.Dezrobirii nr. 18-38, bl. 33, sc. 3, parter, ap.83</p><p>Mun. Bucuresti, sector 6, Romania</p></div>
+                    {/* <div><p>contact@tpvideo.ro</p><p>0724 337 777</p></div>
+                    <div><p>TeodorPop ... srl </p></div> */}
                 </div>
-                <h4>Avant Websolutions © 2019</h4>
+                <h4>TPVideo © 2019</h4>
             </div>
         </footer>
 
@@ -88,6 +86,7 @@ footer {
     margin: 0 auto;
     text-align: center;
     border: 1px solid #333333; 
+    height: 60px;
 }
 
 .flexbox{
@@ -95,19 +94,19 @@ position: relative;
 margin: auto;
  display: flex;
  justify-content: center;
- padding: 4px;
- margin: 1px 0px 8px 0px;
- border: 1px solid #FFC163; 
+ padding: 0px;
+ margin: 0px 0px 0px 0px;
+ 
  align-items: center;
 }
 
 .flexbox div {
-    margin: 0px 7vw;
+    margin: 0px calc(7vw);
     
     
 }
 .flexbox p {
-    width: 100%;
+    width: 250px;
     font-size: 13px;
     text-align: left;
     

@@ -1,17 +1,39 @@
 $body_background: black;
-$body_font-size: 50px;
+$body_font-size: 14px;
 
 
+@font-face {
+    font-family: Roboto;
+    src: url(/static/fonts/Roboto/Roboto-Regular.ttf);
+    font-weight: normal;
+  }
 
-$font-raleway: 'Raleway', sans-serif;
+  @font-face {
+    font-family: Roboto Condensed;
+    src: url(/static/fonts/Roboto_Condensed/RobotoCondensed-Regular.ttf);
+    font-weight: normal;
+  }
 
-$font-imfellfrench: 'IM Fell French Canon', serif;
+  @font-face {
+    font-family: Roboto Mono;
+    src: url(/static/fonts/Roboto_Mono/RobotoMono-Regular.ttf);
+    font-weight: normal;
+  }
 
-$font-revalia: 'Revalia', cursive;
+  @font-face {
+    font-family: Satisfy;
+    src: url(/static/fonts/Satisfy/Satisfy-Regular.ttf);
+    font-weight: normal;
+  }
 
-$font-jacques: 'Jacques Francois', serif;
+
+$font-roboto: 'Roboto', sans-serif;
+$font-robotocondensed: 'Roboto Condensed', sans-serif;
+$font-robotomono: 'Roboto Mono', monospace;
+$font-satisfy: 'Satisfy', cursive;
+
 
 
 $mediaq-headerchange-height: 800px;
-$header-height: 80px;
+$header-height: 62px;
 $header-height-mobile: 50px;

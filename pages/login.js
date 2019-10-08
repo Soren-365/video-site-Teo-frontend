@@ -24,12 +24,44 @@ class Login extends React.Component {
     return (
       <App>
         {/* SigninBox handles all login logic. */}
+
+        <div className="page_background content">
+        <div className="headerbuffer" />
+        <div className="contentbox">
+        <div className="createbox">     
+       
+       
         <LoginBox />
+        <div className="alreadyhave">
         <hr />
         New User?{' '}
         <Link prefetch href='/create-account'>
           <a>Create account</a>
         </Link>
+        </div>
+        </div>
+        </div> 
+        </div>
+        <style jsx>{`
+
+        .createbox {
+          position: relative;
+          width: 400px;
+          height: 400px;
+          margin: 40px calc((100% - 400px)/2) 0px auto;
+
+        }
+        .alreadyhave {
+          font-size: 20px;
+        }
+        a {
+          text-decoration: underline;
+          text-decoration-color: blue;
+        }
+
+
+        `}</style>
+
       </App>
     )
   }

@@ -6,7 +6,7 @@ let processenv = {}
 if (process.env.STAGING === 'dev') {
      processenv = {
      corsOrigin: process.env.CLIENT_DEVELOPMENT,
-     graphqlPath: process.env.GRAPHQL_CLIENT_PATH_DEVELOPMENT,
+     graphqlPath: process.env.GRAPHQL_CLIENT_ENDPOINT_DEVELOPMENT,
      graphqlEndpoint: process.env.GRAPHQL_CLIENT_ENDPOINT_DEVELOPMENT,
      fileserverPort: process.env.FILESERVER_PORT,
      fileserverEndpoint: process.env.FILESERVER_CLIENT_ENDPOINT_DEVELOPMENT
