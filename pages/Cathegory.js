@@ -92,7 +92,7 @@ handleClick() {
 }
 
 componentDidUpdate () {
-    console.log(state.medialib.lecturecard_1.imgUrl1)
+   // console.log(this.state.medialib.lecturecard_1.imgUrl1)
 }
 
     signout = apolloClient => () => {
@@ -102,7 +102,7 @@ componentDidUpdate () {
   
       // Force a reload of all the current queries now that the user is
       // logged in, so we don't accidentally leave any state around.
-      console.log( apolloClient)
+     // console.log( apolloClient)
       apolloClient.cache.reset().then(() => {
         // Redirect to a more useful page when signed out
         redirect({}, '/login')
