@@ -34,6 +34,10 @@ app.prepare().then(() => {
     } else if (pathname === '/Cathegory') {
       app.render(req, res, '/Cathegory', query);
       console.log("Got a new GET @ /Cathegory");
+      
+    } else if (pathname === '/login') {
+      app.render(req, res, '/login', query);
+      console.log("Got a new GET @ /login");
     }
       else {
       handle(req, res, parsedUrl);
