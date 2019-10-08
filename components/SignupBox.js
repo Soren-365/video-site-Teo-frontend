@@ -4,7 +4,7 @@ import cookie from 'cookie'
 import redirect from '../lib/redirect'
 import { userSignIn, userSignOut } from '../lib/user/actions'
 import { connect } from 'react-redux'
-import createStore from '../lib/store'
+
 const SIGNUP_USER = gql`
   mutation create($email: String!, $password: String!,$name: String!) {
     signup(email: $email, password: $password, name: $name) {
@@ -14,7 +14,7 @@ const SIGNUP_USER = gql`
 `
 
 
-const RegisterBox = ({ client}) => {
+const RegisterBox = ({ client, user}) => {
   let name, email, password
   
   const userSignIn = () => {
@@ -28,7 +28,7 @@ const RegisterBox = ({ client}) => {
   return (
     <Mutation
       mutation={SIGNUP_USER}
-      onCompleted={ (data) => {
+      onCompleted={ (data, userSignIn) => {
         // Store the token in cookie
         console.log(data.signup.token);
         document.cookie = cookie.serialize('token', data.signup.token, {
@@ -38,7 +38,7 @@ const RegisterBox = ({ client}) => {
         console.log("In Loginbod.js document.cookie is:", document.cookie)
         // Force a reload of all the current queries now that the user is
         // logged in
-        this.userSignIn
+        userSignIn
         client.cache.reset().then(() => {
          redirect({}, '/')
         })
@@ -120,5 +120,6 @@ const RegisterBox = ({ client}) => {
     </Mutation>
   )
 }
+const mapStateToProps = ({ user }) => ({ user })
 
-export default connect(createStore)(withApollo(RegisterBox))
+export default connect(mapStateToProps)(withApollo(RegisterBox))
