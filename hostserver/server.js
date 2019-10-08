@@ -23,17 +23,17 @@ app.prepare().then(() => {
       app.render(req, res, '/', query); 
       console.log("Got a new GET @ /");}
 
-      else if (pathname === '/apollo') {
-      app.render(req, res, '/apollo', query);
-      console.log("Got a new GET @ /apollo");
-
-    } else if (pathname === '/video') {
-        app.render(req, res, '/video', query);
-        console.log("Got a new GET @ /video");
-
-    } else if (pathname === '/create-account') {
+      else if (pathname === '/create-account') {
       app.render(req, res, '/create-account', query);
       console.log("Got a new GET @ /create-account");
+
+    } else if (pathname === '/Videoplay') {
+        app.render(req, res, '/Videoplay', query);
+        console.log("Got a new GET @ /Videoplay");
+
+    } else if (pathname === '/Cathegory') {
+      app.render(req, res, '/Cathegory', query);
+      console.log("Got a new GET @ /Cathegory");
     }
       else {
       handle(req, res, parsedUrl);
