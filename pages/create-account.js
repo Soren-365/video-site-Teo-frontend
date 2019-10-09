@@ -5,6 +5,8 @@ import redirect from '../lib/redirect'
 import checkLoggedIn from '../lib/checkLoggedIn'
 import withApollo from '../lib/withApollo'
 import SignupBox from '../components/SignupBox'
+import Header from '../components/Header'
+import {sitedata } from '../components/sitedata'
 
 class CreateAccount extends React.Component {
   // static async getInitialProps ( context, ...props) {
@@ -26,6 +28,7 @@ class CreateAccount extends React.Component {
   render () {
     return (
       <App>
+      <Header loggedIn={sitedata.settings.userLoggedIn}/>
         <div className="page_background content">
         <div className="headerbuffer" />
         <div className="contentbox">

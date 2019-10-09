@@ -2,6 +2,7 @@ import { Mutation, withApollo, ApolloConsumer } from 'react-apollo'
 import gql from 'graphql-tag'
 import cookie from 'cookie'
 import redirect from '../lib/redirect'
+import { writeUserLoggedIn, sitedata } from '../components/sitedata'
 import { userSignIn, userSignOut } from '../lib/user/actions'
 import { connect } from 'react-redux'
 import createStore from '../lib/store'
@@ -40,7 +41,8 @@ const LoginBox = ({ client }) => {
        
         // Force a reload of all the current queries now that the user is
         // logged in
-        {userSignIn}
+        userSignIn
+        writeUserLoggedIn(true) 
       
       client.cache.reset().then(() => { redirect({}, '/') })
 

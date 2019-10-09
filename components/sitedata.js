@@ -11,6 +11,7 @@ export const sitedata =
     media_libs: [medialib_en, medialib_ro],
    libs_pointer: 1,
     mobile_menu_active: false,
+    userLoggedIn: false,
     }
 }
 
@@ -38,5 +39,13 @@ export function writeMobileMenuActivetoSettings (isActive) {
   // console.log("WriteMobileActivetoSettings",sitedata.settings.mobile_menu_active)
 }
 
+export function writeUserLoggedIn (isLoggedIn) {
+  console.log("In sitedata.js writing to sitedata.settings.userLoggedIn the value:", isLoggedIn)
+  let statusCopy = Object.assign({}, sitedata.settings)
+  statusCopy.userLoggedIn = isLoggedIn
+  sitedata.settings  = statusCopy
+  // console.log("WriteMobileActivetoSettings",isActive)
+  // console.log("WriteMobileActivetoSettings",sitedata.settings.mobile_menu_active)
+}
 // const medialib = Object.assign({},sitedata.settings.media_libs[sitedata.settings.libs_pointer])
 // export default medialib 

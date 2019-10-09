@@ -1,18 +1,21 @@
 import Link from 'next/link'
 import { withRouter } from 'next/router'
 import { useState, useEffect } from 'react'
-import withApollo from '../lib/withApollo'
-import { ApolloConsumer, ApolloProvider  } from 'react-apollo'
+import { sitedata } from '../components/sitedata'
 
-class Header extends React.Component {
-  static async getInitialProps ({router: { pathname }}, context, apolloClient) {
-  }
+import checkLoggedIn from '../lib/checkLoggedIn'
+import { userSignOut } from '../lib/user/actions'
 
-  render () {
-    const { pathname ,Component, pageProps, apolloClient} = this.props
+const Header = ({router: pathname, ...props}) => {
+ 
+
+  const IsUserLoggedIn = props.loggedIn
+
+
+   console.log("In Header.js, User signed In?:",IsUserLoggedIn)
     return (
   <header>
-  <ApolloProvider client={apolloClient}>
+
     <div className="pre">
       <Link prefetch href="/"><a className={pathname === '/index' ? 'is-active logo' : 'logo'}><img  src="/static/TPvideo_redlined.png" width="152" alt="site logo"></img></a></Link>
     </div>
@@ -37,14 +40,15 @@ class Header extends React.Component {
     <div className="post">
     <a><img className="bell" src="/static/bell.svg" height="24" width="24" ></img></a>
     <a><img className="menu" src="/static/menu.svg" height="24" width="24" ></img></a>
-    <Link href='/create-account'>
-      <a className={pathname === '/create-account' ? 'is-active createaccount' : 'createaccount'}>Sign up | Log in</a>
+    <Link href={IsUserLoggedIn ? "/signout" :  "/create-account"}>
+      <a className={IsUserLoggedIn ? (pathname === '/' ? 'is-active signout' : 'signout') : (pathname === '/create-account' ? 'is-active createaccount' : 'createaccount')}>
+      {IsUserLoggedIn ? "Sign out" : "Sign up | Log in" }</a>
     </Link>
     </div>
     {/* <Link prefetch href='/login'>
       <a className={pathname === '/login' ? 'is-active' : ''}>Login</a>
     </Link> */}
-    </ApolloProvider>
+  
     <style jsx>{`
 
 
@@ -135,6 +139,10 @@ a {
  margin: 0 9px;
  transform: translateY(5px);
 }
+.signout {
+ margin: 0 9px;
+ transform: translateY(5px);
+}
 
 @media only screen and (min-width: 957px) {
   a { display: block;}
@@ -182,7 +190,7 @@ a:hover.is-active  {
  }
 
 `}</style>
-  </header>)}
+  </header>)
 }
 
-export default withApollo(withRouter(Header))
+export default withRouter(Header)

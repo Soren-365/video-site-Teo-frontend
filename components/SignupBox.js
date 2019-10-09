@@ -4,6 +4,7 @@ import cookie from 'cookie'
 import redirect from '../lib/redirect'
 import { userSignIn, userSignOut } from '../lib/user/actions'
 import { connect } from 'react-redux'
+import { writeUserLoggedIn, sitedata } from '../components/sitedata'
 
 const SIGNUP_USER = gql`
   mutation create($email: String!, $password: String!,$name: String!) {
@@ -39,6 +40,7 @@ const RegisterBox = ({ client, user}) => {
         // Force a reload of all the current queries now that the user is
         // logged in
         userSignIn
+        writeUserLoggedIn(true) 
         client.cache.reset().then(() => {
          redirect({}, '/')
         })

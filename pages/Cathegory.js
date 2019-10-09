@@ -19,15 +19,16 @@ import createStore from '../lib/store'
 import redirect from '../lib/redirect'
 import checkLoggedIn from '../lib/checkLoggedIn'
 import Link from 'next/link'
-import { isCallSignatureDeclaration } from 'typescript'
+//import { isCallSignatureDeclaration } from 'typescript'
+import Header from '../components/Header'
 
   //  ctx = undefined
     
   class Index extends React.Component {
     
-    static propTypes = {
-      ctx: PropTypes.object.isRequired
-    }
+    // static propTypes = {
+    //   ctx: PropTypes.object.isRequired
+    // }
 
     static async getInitialProps (context, apolloClient) {
       const { loggedInUser } = await checkLoggedIn(context.apolloClient)
@@ -39,9 +40,9 @@ import { isCallSignatureDeclaration } from 'typescript'
         // If not signed in, send them somewhere more useful
      
     
-    if (!context.store.getState().placeholder.data) {
+    // if (!context.store.getState().placeholder.data) {
     
-    }
+    // }
   
     if (typeof window === 'undefined') {
       // if server
@@ -119,6 +120,7 @@ componentDidUpdate () {
       return (
         <App>
         <ApolloProvider client={apolloClient}>
+        <Header loggedIn={this.props.loggedInUser.isUserLoggedIn}/>
         <div className="page_background content">
         <div className="headerbuffer" />
         <div className="contentbox">

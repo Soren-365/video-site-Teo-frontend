@@ -10,7 +10,7 @@ const path = require('path')
 const Dotenv = require('dotenv-webpack')
 
 
-module.exports = withSass(withCSS({
+module.exports = withBundleAnalyzer(withSass(withCSS({
       analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
       analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
       bundleAnalyzerConfig: {
@@ -41,8 +41,13 @@ module.exports = withSass(withCSS({
         return {
           '/': { page: '/index' },
           'Videoplay': { page: 'Videoplay'},
+          'login': { page: 'login'},
+          'create-account': { page: 'create-account'},
+          'Cathegory': { page: 'Cathegory'},
+          'signout': { page: 'signout'},
+
         }}
-  }))
+  })))
 
 
 

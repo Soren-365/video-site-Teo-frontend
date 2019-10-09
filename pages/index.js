@@ -1,37 +1,39 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { ApolloConsumer, ApolloProvider  } from 'react-apollo'
+
+import { ApolloProvider  } from 'react-apollo'
 import { connect } from 'react-redux'
-import withRedux from 'next-redux-wrapper'
+
 import { startClock } from '../lib/clock/actions'
-import { countIncrease } from '../lib/count/actions'
-import { loadData } from '../lib/placeholder/actions'
+//import { countIncrease } from '../lib/count/actions'
+//import { loadData } from '../lib/placeholder/actions'
 import cookie from 'cookie'
 import App from '../components/App'
 import CathegoryCard from '../components/cathegorycard'
-import { sitedata } from '../components/sitedata'
-import Page from '../components/Page'
-import Submit from '../components/Submit'
+import { writeUserLoggedIn, sitedata } from '../components/sitedata'
 
-import LinkList from '../components/LinkList'
 import withApollo from '../lib/withApollo'
-
 import createStore from '../lib/store'
-import CreateLink from '../components/CreateLink'
-import PostList from '../components/PostList'
-
 import redirect from '../lib/redirect'
 import checkLoggedIn from '../lib/checkLoggedIn'
 import Link from 'next/link'
-import { isCallSignatureDeclaration } from 'typescript'
+import Header from '../components/Header'
+
+// import PropTypes from 'prop-types'
+// import withRedux from 'next-redux-wrapper'
+// import LinkList from '../components/LinkList'
+
+// import Page from '../components/Page'
+// import Submit from '../components/Submit'
+// import CreateLink from '../components/CreateLink'
+// import PostList from '../components/PostList'
 
   //  ctx = undefined
     
   class Index extends React.Component {
     
-    static propTypes = {
-      ctx: PropTypes.object.isRequired
-    }
+    // static propTypes = {
+    //   ctx: PropTypes.object.isRequired
+    // }
 
     static async getInitialProps (context, apolloClient) {
       const { loggedInUser } = await checkLoggedIn(context.apolloClient)
@@ -41,17 +43,18 @@ import { isCallSignatureDeclaration } from 'typescript'
       var name =""
       { (!loggedInUser.isUserLoggedIn) ? name = "" : name = loggedInUser.isUserLoggedIn.name }
         // If not signed in, send them somewhere more useful
+       
      
-      context.store.dispatch(countIncrease())
-    if (!context.store.getState().placeholder.data) {
-      context.store.dispatch(loadData())
-    }
+    //   context.store.dispatch(countIncrease())
+    // if (!context.store.getState().placeholder.data) {
+    //   context.store.dispatch(loadData())
+    // }
   
     if (typeof window === 'undefined') {
       // if server
    //  const faker = require('faker')
      //const name = faker.name.findName()
-     
+    
      return  {loggedInUser, message: `${name}` }
    }
    //if client
@@ -72,7 +75,8 @@ import { isCallSignatureDeclaration } from 'typescript'
           videomute: true,
           videopause: false,
           videopausebutton: true,
-          medialib: sitedata.settings.media_libs[sitedata.settings.libs_pointer]
+          medialib: sitedata.settings.media_libs[sitedata.settings.libs_pointer],
+          loggedinuser: props.loggedInUser.isUserLoggedIn,
          
       }      
       
@@ -84,7 +88,7 @@ import { isCallSignatureDeclaration } from 'typescript'
  
 
   componentDidMount () {
-   this.props.dispatch(startClock())
+  // this.props.dispatch(startClock())
    const promovideonode = document.getElementById('promovideo')
    promovideonode.autoplay = true;
    promovideonode.muted = this.state.videomute; 
@@ -141,6 +145,7 @@ componentDidUpdate () {
       return (
         <App>
         <ApolloProvider client={apolloClient}>
+        <Header loggedIn={this.state.loggedinuser}/>
         <div className="page_background content">
         <div className="headerbuffer" />
         <div className="contentbox">
@@ -167,8 +172,8 @@ componentDidUpdate () {
             Your browser does not support the video tag.
             </video> 
             <div className="videocontrols">
-            <button onClick={this.handleClickMute} ><img className="mute vicon" src="/static/volume-1.svg" height="24" width="24" ></img></button>
-            <button onClick={this.handleClickPlay} ><img className="play vicon" src="/static/play.svg" height="24" width="24" ></img></button>
+            <button onClick={this.handleClickMute} ><img className="mute vicon" src={this.state.videomute ? "/static/volume-1.svg" : "/static/volume-x.svg"} height="24" width="24" ></img></button>
+            <button onClick={this.handleClickPlay} ><img className="play vicon" src={this.state.videopausebutton ? "/static/pause.svg" : "/static/play.svg"} height="24" width="24" ></img></button>
             
             </div>
             </div>
@@ -334,6 +339,7 @@ componentDidUpdate () {
          .vicon {
           transform: translateY(-18px);
           height: 30px;
+          margin: 0 4px 0 4px;
          }
 
  

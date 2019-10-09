@@ -2,10 +2,9 @@
 import "../css/mainstyles.css"
 //import "../sass/mystyles.scss"
 //import { sitedata } from "./sitedata"
-import Header from './Header'
 
 import dynamic from 'next/dynamic'
-import Meta from '../components/meta'
+import Meta from './meta'
 import Head from 'next/head'
 // {   console.log("was here; start of layout.jsx", sitedata.settings)
 //      if (sitedata.settings["lang"] === 'en') {
@@ -63,7 +62,7 @@ export default ({ children, ...otherprops }) => (
 
         {/* <Header sitedatasettings={sitedata.settings}></Header> */}
 
-        <Header />
+        
        
                 {children}
         

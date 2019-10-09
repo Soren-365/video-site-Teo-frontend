@@ -6,11 +6,17 @@ import checkLoggedIn from '../lib/checkLoggedIn'
 import App from '../components/App'
 import LoginBox from '../components/LoginBox'
 import withApollo from '../lib/withApollo'
-import Header from '../components/Header'
-import {sitedata } from '../components/sitedata'
+import { ApolloConsumer } from 'react-apollo'
+import { writeUserLoggedIn } from '../components/sitedata'
+import { ApolloClient } from 'apollo-boost'
+import initApollo from '../lib/initApollo'
 
-class Login extends React.Component {
-  // static async getInitialProps (context) {
+import Router from 'next/router'
+class Signout extends React.Component {
+   static async getInitialProps (context) {
+
+    context.apolloClient.resetStore()
+   }
   //   // const { loggedInUser } = await checkLoggedIn(context.apolloClient)
 
   //   // if (loggedInUser.user) {
@@ -21,26 +27,29 @@ class Login extends React.Component {
    
   //   return {}
   // }
-
+  componentDidMount () {
+    document.cookie = 'token'+'=; Max-Age=-99999999;';  
+     writeUserLoggedIn(false)
+     Router.replace("/")
+     
+    }
+  
   render () {
     return (
       <App>
         {/* SigninBox handles all login logic. */}
-        <Header loggedIn={sitedata.settings.userLoggedIn}/>
+
         <div className="page_background content">
         <div className="headerbuffer" />
         <div className="contentbox">
         <div className="createbox">     
-       
-       
-        <LoginBox />
-        <div className="alreadyhave">
-        <hr />
-        New User?{' '}
-        <Link prefetch href='/create-account'>
-          <a>Create account</a>
-        </Link>
-        </div>
+       {( (!typeof window === 'undefined') && 
+       (<>
+       <p> Signing out...</p>
+       <ApolloConsumer>
+       client.cache.reset().then(() => { redirect({}, '/') })
+       </ApolloConsumer> </>) 
+       )}
         </div>
         </div> 
         </div>
@@ -69,4 +78,4 @@ class Login extends React.Component {
   }
 }
 
-export default withApollo(Login)
+export default withApollo(Signout)
