@@ -66,7 +66,7 @@ import Header from '../components/Header'
           // vidfile: null,
           // token: "eyJhbGciOiJIUzI1NsiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJTWmVfcmFvTSIsImlhdCI6MTU2OTE1MTQwMn0.qT3rI5nsTFQz_VzaQGQVw-qepcZJ4dPIK7JFIauH1bg"
           message: `${props.message}` || "",
-          videomute: true,
+          videomute: false,
           medialib: sitedata.settings.media_libs[sitedata.settings.libs_pointer],
           VidUrl: ""
          
@@ -82,8 +82,9 @@ import Header from '../components/Header'
   componentDidMount () {
   
     const videonode = document.getElementById('video')
+    
+    videonode.muted = this.state.videomute; 
     videonode.autoplay = true;
-    //promovideonode.muted = this.state.videomute; 
    }
 
 //   playunmute() {
@@ -151,7 +152,7 @@ componentDidUpdate () {
           <div className="leftsidebox">
 
          <div>
-          <video className="video" id="video" width="965" height="542" controls>          
+          <video className="video" id="video" width="965" height="542" controls controlsList="nodownload">          
             <source src="/static/egalitateintresexe.mp4" type="video/mp4"/>
             Your browser does not support the video tag.
             </video> 

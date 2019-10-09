@@ -90,8 +90,10 @@ import Header from '../components/Header'
   componentDidMount () {
   // this.props.dispatch(startClock())
    const promovideonode = document.getElementById('promovideo')
-   promovideonode.autoplay = true;
+   
    promovideonode.muted = this.state.videomute; 
+   promovideonode.autoplay = true;
+   promovideonode.load();
   }
 
 //   playunmute() {
